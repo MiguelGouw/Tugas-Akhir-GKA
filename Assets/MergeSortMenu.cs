@@ -5,28 +5,36 @@ using UnityEngine.UI;
 using System;
 public class MergeSortMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    // public mergesort mergeSort;
-    // public mergesort ActiveSorter;
-    // public InputField InputNumberOfCubes;
-    // public void StartMerge()
-    // {
-    //     ActiveSorter = Instantiate(mergeSort);
-    //     ActiveSorter.NumberOfCubes = Convert.ToInt32(InputNumberOfCubes.text);
-    //     ActiveSorter.StartMerge();
-    // }
-    // public void ResetMerge()
-    // {
-    //     Destroy(ActiveSorter.gameObject);
-    // }
-    void Start()
+    public mergesort mergeSort;
+    public mergesort ActiveSorter;
+    public InputField InputNumberOfSphere;
+     public int[] nilaidata = new int[20];
+     public void StartMerge()
     {
-        
+        // untuk set data array sphere
+        String[] words = InputNumberOfSphere.text.Split(',');
+        ActiveSorter = Instantiate(mergeSort);
+        int temp=0;
+         for(int i = 0; i< ActiveSorter.NumberOfSphere;i++)
+         {
+            nilaidata[i] = Int32.Parse(words[i]);
+            ActiveSorter.dataSphere[i] = nilaidata[i];  
+        }
+         ActiveSorter.StartMerge();      
     }
-
-    // Update is called once per frame
+    public void ResetSort()
+    {
+        Destroy(ActiveSorter.gameObject);
+    }
     void Update()
     {
         
     }
+    public void Nilai(float newValue){
+        //slow, fast forward
+         Time.timeScale = newValue;
+         Debug.Log("value"+ newValue);
+         
+    }
+    
 }

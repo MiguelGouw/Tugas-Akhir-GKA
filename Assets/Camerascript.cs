@@ -13,16 +13,17 @@ public class Camerascript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Gerakin Camera
         float a=0.05f;
         if(Input.GetAxis ("Mouse ScrollWheel")>0)
         {
             GetComponent<Transform>().position = new Vector3(transform.position.x,transform.position.y,transform.position.z+a);
-            //transform.Rotate(-2,0,0);
+          
         }
         if(Input.GetAxis ("Mouse ScrollWheel")<0)
         {
             GetComponent<Transform>().position = new Vector3(transform.position.x,transform.position.y,transform.position.z-a);
-           // transform.Rotate(2,0,0);
+           
         }
         if(Input.GetAxis ("Horizontal")>0)
         {
